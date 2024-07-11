@@ -1,3 +1,3 @@
 export default function BottomBar() {
-  return <>Bottom comp</>;
+  return <div className="">Bottom comp</div>;
 }
