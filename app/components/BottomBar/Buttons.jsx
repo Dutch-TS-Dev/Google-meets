@@ -1,5 +1,5 @@
 // Daniel
 
 export default function Buttons() {
-  return <>Buttons comp</>;
+  return <>Buttons comp11</>;
 }
