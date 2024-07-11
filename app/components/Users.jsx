@@ -1,6 +1,6 @@
 //   Paul
 import users from "../users.json"
-import ".//users.css"
+import "./users.css"
 
 export default function Users() {
 
