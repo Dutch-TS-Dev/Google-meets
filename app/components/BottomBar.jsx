@@ -17,7 +17,7 @@ export default function BottomBar() {
       <MetaData />
       <div id="control-middle">
         <button
-          className={microActive && `!bg-[#3c4043]`}
+          className={microActive ? `!bg-[#3c4043]` : ''}
           id="mic"
           onclick="checkMute()"
         >
