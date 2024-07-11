@@ -4,7 +4,7 @@ import BottomBar from "./components/BottomBar";
 
 export default function Home() {
   return (
-    <main className="flex flex-col px-[16px]">
+    <main className="flex flex-col p-[16px] ">
       <UpperBar />
       <Users />
       <BottomBar />
