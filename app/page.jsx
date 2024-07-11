@@ -6,7 +6,7 @@ import ButtonsRight from "./components/BottomBar/ButtonsRight";
 
 export default function Home() {
   return (
-    <main className="flex flex-col p-[16px] ">
+    <main className="flex flex-col p-[16px]">
       <UpperBar />
 
       <Users />

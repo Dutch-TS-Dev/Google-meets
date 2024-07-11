@@ -1,9 +1,14 @@
+"use client";
+
+import { useState } from "react";
 import ButtonRight from "./BottomBar/ButtonsRight";
 import MetaData from "./BottomBar/MetaData";
 
 import("./Buttons.css");
 
 export default function BottomBar() {
+  const [microActive, setMicroActive] = useState(false);
+
   return (
     <div
       id="control-bar"
@@ -11,10 +16,45 @@ export default function BottomBar() {
     >
       <MetaData />
       <div id="control-middle">
-        <button id="mic" onclick="checkMute()">
-          <svg width="24" height="24" viewBox="0 0 48 48" fill="white">
-            <path d="m35.65 30.25-2.7-2.65q.95-1.2 1.375-2.7.425-1.5.425-3.2h3.65q0 2.3-.725 4.525-.725 2.225-2.025 4.025ZM28.9 23.6 17.65 12.35V8.3q.25-1.95 1.875-3.375T23.3 3.5q2.45 0 4.175 1.7Q29.2 6.9 29.2 9.35V21.7q0 .35-.075.975t-.225.925Zm-7.4 19.7v-6.9q-5.7-.6-9.5-4.775Q8.2 27.45 8.2 21.7h3.65q0 4.75 3.35 7.975 3.35 3.225 8.1 3.225 2.15 0 4.025-.725Q29.2 31.45 30.8 30.2l2.6 2.6q-1.7 1.55-3.775 2.45-2.075.9-4.525 1.15v6.9Zm19.95 1.8L1.7 5.35 3.8 3.2l39.75 39.75Z"></path>
-          </svg>
+        <button
+          className={microActive && `!bg-[#3c4043]`}
+          id="mic"
+          onclick="checkMute()"
+        >
+          <div
+            onClick={() => {
+              setMicroActive(!microActive);
+            }}
+          >
+            {microActive && (
+              <svg
+                focusable="false"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                class="Hdh4hc cIGbvc NMm5M"
+                fill="white"
+              >
+                <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"></path>
+                <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"></path>
+              </svg>
+            )}
+
+            {!microActive && (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24px"
+                height="24px"
+                viewBox="0 0 24 24"
+                fill="white"
+                class="Hdh4hc cIGbvc"
+              >
+                <path d="M0 0h24v24H0zm0 0h24v24H0z" fill="none"></path>
+                <path d="M19 11h-1.7c0 .74-.16 1.43-.43 2.05l1.23 1.23c.56-.98.9-2.09.9-3.28zm-4.02.17c0-.06.02-.11.02-.17V5c0-1.66-1.34-3-3-3S9 3.34 9 5v.18l5.98 5.99zM4.27 3L3 4.27l6.01 6.01V11c0 1.66 1.33 3 2.99 3 .22 0 .44-.03.65-.08l1.66 1.66c-.71.33-1.5.52-2.31.52-2.76 0-5.3-2.1-5.3-5.1H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c.91-.13 1.77-.45 2.54-.9L19.73 21 21 19.73 4.27 3z"></path>
+              </svg>
+            )}
+          </div>
+
           <div className="hint">lorem (Strg + D)</div>
         </button>
         <button id="cam" className="" onclick="checkCam()">
